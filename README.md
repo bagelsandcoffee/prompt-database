@@ -41,6 +41,16 @@
 ---
 
 <h2 align="center">📂 Project Structure</h2>
+## 📦 Download (Latest Release)
+
+Download the latest version from:
+
+👉 https://github.com/YOUR-USERNAME/prompt-database-pro/releases/latest
+
+After downloading:
+1. Extract the ZIP
+2. Open `index.html` in your browser
+3. Or upload to GitHub Pages to host it online
 
 ```bash
 /prompt-database
