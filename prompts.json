@@ -4,17 +4,5 @@
     "category": "Content Creation",
     "prompt": "Write a YouTube script about ____ in an engaging, humorous style.",
     "tags": ["youtube", "script", "content"]
-  },
-  {
-    "name": "Startup Idea Generator",
-    "category": "Entrepreneurship",
-    "prompt": "Give me 10 startup ideas in the ____ space with revenue models.",
-    "tags": ["startup", "ideas", "business"]
-  },
-  {
-    "name": "Essay Improver",
-    "category": "Writing",
-    "prompt": "Rewrite the following essay to be clearer, more formal, and cohesive: ____",
-    "tags": ["writing", "editing", "essay"]
   }
 ]
