@@ -1,158 +1,62 @@
 [
   {
     "id": "c8a3fe2c-3ef4-4dd1-b7b6-45d3f26ab001",
-    "prompt": "Create an official portrait picture of [Subject] in a black suit with sharp features and makeup all in touch, 360 HD, same hair in (photo reference) and it's giving luxurious vibes with high detailed 4k resolution."
+    "title": "Official Black Suit Portrait — Luxury Studio Look",
+    "category": "Portrait",
+    "prompt": "Create an official portrait picture of [Subject] in a black suit with sharp features and makeup all in touch, 360 HD, giving luxurious vibes with high detailed 4K resolution."
   },
   {
     "id": "7b32c56e-8e72-4ae1-b1d2-0e27f1db1fa2",
-    "prompt": "Ultra-realistic, high-definition DSLR photograph of [Subject] standing side by side, holding hands, smiling naturally. Golden hour scene in a park or meadow with soft blurred bokeh background. Professional portrait quality with crisp detail. Rim lighting outlining their hair and shoulders, giving a soft glow that blends naturally with the warm sunset. Subtle butterfly lighting on their faces for perfect balance of light and shadow, highlighting their eyes and expressions. Full-body shot, cinematic depth, natural tones, flawless integration of lighting with background."
+    "title": "Golden Hour Duo — Cinematic Child Portrait",
+    "category": "Cinematic",
+    "prompt": "Ultra-realistic, high-definition DSLR photograph of [Subject] standing side by side, holding hands, smiling naturally. Golden hour scene in a park or meadow with soft blurred bokeh background, rim lighting, butterfly lighting, full-body shot, cinematic depth, natural tones, crisp detail."
   },
   {
     "id": "e3f302ae-c121-4bc2-8c8d-07c6d2a85910",
-    "prompt": "Ultra-realistic, high-definition DSLR photograph of [Subject] standing side by side, holding hands. They are smiling naturally, with soft warm sunlight creating a cinematic golden hour glow. Background is a slightly blurred park or meadow with bokeh effect. Full-body shot, sharp detail, natural tones, professional portrait quality."
+    "title": "Soft Sunset Duo — Realistic Full-Body Portrait",
+    "category": "Portrait",
+    "prompt": "Ultra-realistic, high-definition DSLR photograph of [Subject] standing side by side, holding hands. Soft warm sunset glow, cinematic mood, blurred park or meadow background, bokeh, natural tones, crisp detail, full-body professional portrait."
   },
   {
     "id": "ca884d69-52e8-4dd8-8f6d-552b4fe78268",
-    "prompt": "A hyper-realistic, cinematic close-up portrait of a mysterious [Subject] with water droplets and shimmering glitter across the face, illuminated by deep blue neon lighting. Piercing, glowing blue eyes contrast with smooth skin and glossy lips. Wet strands of hair reflect neon light. Photorealistic 8K, dramatic depth of field, ultra-high detail."
+    "title": "Neon-Blue Wet Portrait — Cinematic Close-Up",
+    "category": "High-Fashion Editorial",
+    "prompt": "A hyper-realistic, cinematic close-up portrait of [Subject] with water droplets and shimmering glitter across the face, illuminated by deep blue neon lighting. Piercing glowing eyes, wet strands reflecting light, ultra-detailed 8K textures, dramatic depth of field."
   },
   {
     "id": "a7fbd02e-8922-4ad5-a345-3243d9f66eac",
-    "prompt": "A cinematic image of [Subject] casually seated on a modern retro motorcycle, leaning slightly sideways, legs apart, feet on the ground, arms crossed on handlebars, calm confident gaze to the left. Outfit: black leather jacket over grey t-shirt, black skinny jeans, black boots. Motorcycle matte black with chrome details. Neon-lit cyberpunk city street at night with wet asphalt reflecting pink, blue, and purple lights. Cinematic lighting, eye-level angle."
+    "title": "Neon Motorcycle Street Scene — Cyberpunk Portrait",
+    "category": "Cinematic",
+    "prompt": "A cinematic image of [Subject] casually seated on a modern retro motorcycle, leaning sideways with a confident gaze. Wearing a black leather jacket, skinny jeans, boots. Neon-lit cyberpunk street at night with wet asphalt reflecting pink, blue, and purple lighting. Eye-level portrait angle."
   },
   {
     "id": "fd78b1ed-5fb6-4b73-9b94-be8ac4b7f222",
-    "prompt": "A hyper-realistic, futuristic portrait of [Subject] with platinum-white hair illuminated by a soft ethereal glow. Their skin radiates porcelain smoothness, and piercing blue eyes shine intensely. Glittering luminescent particles form constellation-like patterns on the cheeks. Wearing a translucent bodysuit embedded with glowing fiber-optic threads. Deep black background, cinematic sci-fi aesthetic, 8K."
+    "title": "Platinum-Haired Futuristic Portrait — Sci-Fi Glow",
+    "category": "Sci-Fi",
+    "prompt": "A hyper-realistic futuristic portrait of [Subject] with platinum-white hair illuminated by an ethereal glow. Luminescent constellation-like particles on the cheeks, translucent bodysuit with glowing fiber-optic threads, deep black sci-fi background, cinematic lighting, ultra-detailed 8K resolution."
   },
   {
     "id": "84d9eb39-5980-412c-8d88-851b0234de54",
-    "prompt": "A cinematic image of [Subject] sitting on dark, rocky ground in a gloomy atmosphere, wearing a black suit and black shirt with a silver watch. Knees bent, leaning forward, right hand dropping sand or ash. Background dark and moody."
+    "title": "Somber Rocky Ground Scene — Dramatic Portrait",
+    "category": "Cinematic",
+    "prompt": "[Subject] sitting on dark rocky ground in a gloomy atmosphere wearing a black suit and shirt, with a silver watch. Knees bent, leaning forward, right hand dropping ash, dark emotional backdrop, somber cinematic tone."
   },
   {
     "id": "fa518b1f-d90d-4d85-a1d4-9860fd806b71",
-    "prompt": "The most realistic portrait of [Subject] lying elegantly, head resting on their arm, shadow reflecting perfectly on a glossy black surface. Soft movie-style lighting highlights glowing skin, sharp delicate features, and slightly wet hair falling naturally."
+    "title": "Elegant Reflection — Glossy Black Surface Portrait",
+    "category": "High-Fashion Editorial",
+    "prompt": "The most realistic portrait of [Subject] lying elegantly with head resting on the arm, reflected on a glossy black surface. Soft cinematic light highlighting glowing skin, sharp delicate features, slightly wet hair falling forward."
   },
   {
     "id": "28f0a6c9-4033-4e46-af8d-7639cfaff421",
-    "prompt": "Cinematic 8K wide-angle low-angle shot of [Subject] in a royal blue open-collar oversized shirt, beige cargo pants, sneakers, gold chain, tousled hair, walking on an abandoned railway track at golden hour. Background includes bokeh, abandoned tunnel, train coach, trees, dramatic sky, distant urban horizon."
+    "title": "Railway Walk — Golden Hour Cinematic Fashion Shot",
+    "category": "Fashion",
+    "prompt": "[Subject] walking on abandoned railway tracks in golden hour light, wearing an oversized royal-blue open-collar shirt, beige cargo pants, sneakers, gold chain. Wide-angle low angle shot with bokeh, dramatic sky and abandoned tunnel behind. Natural cinematic color grading."
   },
   {
     "id": "930c9da9-db5a-41bb-8604-9a650145aa93",
-    "prompt": "Artistic, dark portrait of [Subject] with head tilted back, eyes closed. Messy particulate hair and soot-like smudges on a pale face. Shoulders and neck abstract and swirling like ash or smoke, particles scattering in a light ethereal background."
-  },
-  {
-    "id": "f3eac621-0f6e-4724-aafd-e49aae48cd33",
-    "prompt": "Cinematic romantic couple photoshoot on a wooden boat on a calm river. Both [Subject] wearing matching maroon traditional outfits. One holds the other's hands lovingly as they smile. Behind them, a soft-focus double exposure overlay shows the same couple sitting closely, one gently kissing the other's head. Ultra-realistic lighting, dreamy atmosphere, 8K depth of field."
-  },
-  {
-    "id": "1a8292cf-b174-4d90-8865-aa2176a0427e",
-    "prompt": "Epic cinematic hyper-realistic portrait of two identical [Subject], standing back to back. One engulfed in flames with glowing embers, the other drenched in cascading water glowing icy blue. Fire and water collide between them, forming steam, sparks, and droplets. Dramatic lighting, 8K detail."
-  },
-  {
-    "id": "f0f77cb0-2460-4440-a8c1-2b245e44ff77",
-    "prompt": "A powerful elemental sorceress-like [Subject] with duality: left side engulfed in blazing fire, right side flowing with icy water. Flames swirl from one hand while water erupts from the other. Background dark and misty with warm orange firelight and cool blue glow. Hyper-realistic fantasy portrait, 8K."
-  },
-  {
-    "id": "414dfef3-02b3-4aa4-9102-071e0ed52d6f",
-    "prompt": "[Subject] wearing an oversized black t-shirt, baggy pants, and sneakers, holding an umbrella while standing on a sidewalk in heavy rain, about to cross at a red light. Trees line the street."
-  },
-  {
-    "id": "acb66f23-9f00-43d6-b294-8e21966cce41",
-    "prompt": "Ultra-realistic cinematic portrait of [Subject] standing against a dark minimal background with a soft golden sunlight beam casting dramatic shadows. Wearing a crisp black suit with wide-leg trousers, shoes visible, one hand in pocket, the other holding red roses. Natural textured hair, serene confident expression."
-  },
-  {
-    "id": "388aaab1-b0e9-4374-ad34-b98379200f57",
-    "prompt": "A stunning blonde [Subject] emerges through a shattered smartphone screen, surrounded by flying glass shards. Hyper-realistic details, cinematic lighting, teal and turquoise tones, sharp reflections, futuristic surrealism, 8K resolution."
-  },
-  {
-    "id": "03460aee-92fa-4ed8-b0e6-7e3796dbf3c0",
-    "prompt": "Editorial-style portrait of [Subject] with smooth glowing skin, glossy lips, silky hair, soft spotlight. Fashion magazine aesthetic, elegant confident expression, studio-quality lighting."
-  },
-  {
-    "id": "153a3d92-323d-4c49-821d-55637d6c82b4",
-    "prompt": "A dreamy close-up portrait of [Subject] with warm sunlight filtering through lace or floral cutouts, casting magical patterns across the skin. Soft glam makeup, gentle romantic expression, hair in a delicate bun. Fantasy realism tones."
-  },
-  {
-    "id": "715c51db-e40f-4f22-8d5e-5b55fbe2f128",
-    "prompt": "Ultra-realistic portrait of [Subject] posing outdoors at sunset under vibrant orange-red sky. Long dark brown hair with a bright red flower. Natural makeup, flash-lit face. Wearing a red bikini with gold waist chain fading from red to black. Background shows ocean, mountains, boats, colorful reflections."
-  },
-  {
-    "id": "943b355e-82de-4cc0-a4a9-0a14fce6694d",
-    "prompt": "Ultra-realistic close-up portrait of [Subject] with wet skin, dripping water, intense green-blue eyes. Soft natural sunlight highlights freckles and glossy lips. Wet black hair frames the face, creating a moody sensual vibe. Cinematic 8K editorial lighting."
-  },
-  {
-    "id": "0fba42ae-1fd0-4667-8095-1c7aa9384d2b",
-    "prompt": "Create a 4K photo of [Subject]. Top-down cinematic shot of [Subject] sitting on the grass leaning against a black modified Yamaha R15 v3 motorcycle under a jacaranda tree. An open journal on the lap. Gaze looking upward as petals fall."
-  },
-  {
-    "id": "f845a79b-abe1-48cd-a89b-87b0817f3188",
-    "prompt": "A dreamy cinematic portrait of [Subject] standing in a forest with golden sunlight filtering through trees. Wearing a casual black t-shirt with white design. Expression calm and curious, pointing toward a glowing golden butterfly hovering near the fingertip. Dozens of luminous butterflies in the scene."
-  },
-  {
-    "id": "d4334b67-67b3-4ff1-99a8-52c6b7ad82de",
-    "prompt": "A real photo of [Subject] with hair in a loose bun, natural makeup, wearing a soft black Sabrina-style knitted sweater, holding a decorative lamp close to the face. Background shows city lights blurred into bokeh. Warm, romantic, realistic 50mm lens."
-  },
-  {
-    "id": "66c5793a-b5fb-4e2f-8ac3-d64ed7701766",
-    "prompt": "Create an official portrait picture of [Subject] in a black suit with sharp features and perfect makeup, 360 HD, elegantly styled hair, luxurious vibes, high-detailed 4K resolution."
-  },
-  {
-    "id": "9a0b8574-d164-4239-a0cc-ae1bf82cb38e",
-    "prompt": "A black-and-white studio portrait of [Subject], exact facial and skin details retained. Single Rembrandt light source creates strong contrast and moody shadows. Background completely dark."
-  },
-{
-  "id": "dfe11258-323f-4fb3-99bb-0df9198ea8c8",
-  "prompt": "A stylish [Subject] standing in a busy urban street, looking over their shoulder. Slightly messy wavy hair, vintage round sunglasses, dark turtleneck and black bomber jacket. Cinematic depth of field with colorful blurred city lights."
-},
-{
-  "id": "7db46c19-77ac-4f65-864b-2a2d7fd0fea3",
-  "prompt": "Create a hyper-realistic photo of [Subject] climbing a coral cliff on the edge of the sea. [Subject] hangs with one right hand gripping a crevice in the coral while the left hand reaches for a magnesium chalk bag at the waist. [Subject] wears a rock climbing helmet with an EPS logo and looks upward toward the camera. The camera is positioned vertically above, capturing ocean waves far below. [Subject] is shirtless, showing defined climber musculature, fingers covered in magnesium chalk dust, and face covered in sweat. Hyper-detailed, dramatic outdoor realism."
-},
-  {
-    "id": "0f18f7ac-e700-4a78-9c93-9d3085cb461f",
-    "prompt": "A matte white rectangular gift box rests on a polished light wood tabletop. The lid slowly opens, revealing a sleek modern VR headset nestled in custom black lining. As the lid opens fully, the headset hovers above the box, transitioning into a black void. The headset suddenly disintegrates into floating components—display, lenses, optics, circuit boards, chips, headband elements—arranged in a perfect circular formation. After a brief pause, the components rapidly reassemble with synchronized mechanical sounds. The completed headset slowly rotates under a spotlight, showcasing its futuristic design."
-  },
-  {
-    "id": "c9df2b23-91bf-4965-96d8-0a1d5be1ed10",
-    "prompt": "Full-body portrait of [Subject] cosplaying a red qipao and cape with signature accessories and high-heeled boots. [Subject] is captured in a powerful random battle pose with dynamic motion. Expression is commanding and confident. Shot with hyper-realistic photoshoot quality on a Canon EOS 5D Mark IV using a 50mm prime lens. Shallow depth of field with bokeh, sharp focus on eyes and costume details, dramatic cinematic lighting with key and rim lights. Rich colors and 8K resolution."
-  },
-  {
-    "id": "61d3f754-7d5d-4bee-8357-3ceed946655f",
-    "prompt": "Generate a 4K image of [Subject] sitting casually on railway tracks during dusk. [Subject] wears a red oversized sweater, black jogger trousers, white-and-black sneakers, a black watch, and a black backpack. [Subject] sits sideways, holding a white takeaway coffee cup with a warm and gentle smile. Background features distant fading green mountains blending with the golden sunset. Mood is calm, aesthetic, and free-spirited with warm romantic tones. Ratio 3:4."
-  },
-  {
-    "id": "83b00342-3c23-4acb-bb35-708d6c383ee3",
-    "prompt": "A professional, high-resolution profile photo of [Subject] from the chest up, with headroom and negative space above. [Subject] faces the camera directly, wearing a smart casual blazer. Background is a solid #141414 studio setup. Shot from a high angle using bright soft diffused lighting to illuminate the face with subtle catchlights. Captured on an 85mm f/1.8 lens with shallow depth of field and soft bokeh. Crisp details in fabric texture, hair strands, and natural skin texture. Tone is confident, professional, and contemporary."
-  },
-  {
-    "id": "ec34a780-c94c-4fd8-a5b4-169d2b43e23e",
-    "prompt": "A cinematic portrait of [Subject] submerged in water with wet, sleek auburn hair clinging to the skin. [Subject] wears a minimalist black halter-neck swimsuit with subtle sheen. Behind [Subject], a dramatic blaze of fire illuminates the scene with warm orange and yellow tones, contrasting with the cool water. Backlighting creates rim light on wet hair and shoulders. Soft frontal lighting reveals facial features. Medium-close-up shot with a confident, intense expression. High-fashion cinematic mood."
-  },
-  {
-    "id": "062fa3e4-65c3-4dd6-94b8-4e48e5a55601",
-    "prompt": "A glamorous portrait of [Subject] wearing a black satin slip dress with a high slit and dramatic diamond jewelry, leaning on the hood of a sleek black luxury sports car. Scene set at night on the driveway of a grand mansion with glowing lampposts. A stylized lightning bolt illuminates the sky behind [Subject], enhancing the dramatic, high-fashion cinematic mood."
-  },
-  {
-    "id": "0d13a927-a776-498b-a3aa-1b444aae2f39",
-    "prompt": "Create a photorealistic American-style upper-body portrait of [Subject] from below the elbows upward. [Subject] faces forward with a confident posture and a slight natural smile. [Subject] wears a suit jacket, shirt, and tie. Background is a textured mid-blue studio backdrop with subtle patterns. Soft, even studio lighting with minimal harsh shadows; natural skin texture preserved. Color grading is warm-neutral with balanced contrast. Composition centers the subject with eyes in the upper third."
-  },
-  {
-    "id": "4af08c0f-5015-49a0-a8ac-781bcffad981",
-    "prompt": "An elegant black-and-white fashion portrait of [Subject] seated on a tall stool, wearing a belted blazer dress and over-the-knee heeled boots. Long straight hair flows naturally. Expression is poised and confident. Dramatic studio lighting casts bold shadows on a plain backdrop, creating a timeless editorial aesthetic."
-  },
-  {
-    "id": "c20e726a-57a4-4fd8-901b-3a3649f3bde8",
-    "prompt": "A glamorous portrait of [Subject] sitting on a light wooden stool in cowboy-inspired attire. [Subject] wears a brown cowboy hat held slightly with the right hand, a black corset, a long black skirt with a high slit, tall brown cowboy boots, and gold accessories. Long wavy hair drapes over the arm. Background is a neutral wall with a circular spotlight casting a dramatic shadow behind [Subject]."
-  },
-  {
-    "id": "b5719a3c-2e09-4c87-b1f7-bf83af84028e",
-    "prompt": "Create a photo of [Subject] sitting casually on modern-style stairs, wearing a short black dress, stylized tights, and heels. Subtle ceiling lighting casts soft shadows. Face and hair remain stylistically consistent. Balanced, cinematic framing."
-  },
-  {
-    "id": "0e09e7b8-7cc8-4d8c-8909-81e9a6e3e119",
-    "prompt": "A fashion portrait of [Subject] seated on a white high stool, body slightly turned right, upper body straight. Right leg bent with foot on crossbar, left leg extended forward. [Subject] holds a bouquet of red roses and wears an elegant black silk mini dress with high heels. Background is a brown studio backdrop with silver balloons scattered on the floor. Soft key lighting at 45° and subtle rim light create a high-fashion editorial look. Slimmer leg proportions preserved."
-  },
-  {
-    "id": "c0bb65f3-2d38-4c55-a5b4-a49d38bc2341",
-    "prompt": "Generate a high-end portrait of [Subject] with editorial-quality styling, cinematic lighting, and refined composition appropriate for a premium fashion photoshoot. Maintain neutral, non-identifying features and professional aesthetic."
+    "title": "Ash & Smoke Portrait — Artistic Dark Concept",
+    "category": "Fantasy",
+    "prompt": "Artistic dark portrait of [Subject] with head tilted back, eyes closed. Messy particulate hair, soot-like smudges on pale skin, shoulders and neck swirling like ash or smoke with particles scattering in light. Ethereal emotional atmosphere."
   }
 ]
