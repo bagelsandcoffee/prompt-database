@@ -66,7 +66,7 @@ body {
   100% {opacity:0; display:none;}
 }
 
-/* Cyber heading typing effect */
+/* Typing effect title */
 .typewriter {
   overflow: hidden;
   border-right: .15em solid #0ff;
@@ -74,7 +74,7 @@ body {
   animation: typing 3s steps(40, end), blink .75s step-end infinite;
   font-size: 32px;
   width: fit-content;
-  margin: 40px auto;
+  margin: 60px auto 20px;
 }
 @keyframes typing { from { width: 0 } to { width: 100% } }
 @keyframes blink { 50% { border-color: transparent } }
@@ -111,7 +111,17 @@ body {
   box-shadow:0 0 30px #0ff;
 }
 
-/* Toggle light/dark neon */
+/* Category header */
+.cat-header {
+  margin: 40px 20px 10px;
+  font-size: 26px;
+  color: #f0f;
+  text-shadow: 0 0 15px #f0f;
+  border-bottom: 1px solid #f0f4;
+  padding-bottom: 5px;
+}
+
+/* Neon Mode Toggle */
 .toggle {
   cursor:pointer;
   margin:20px;
@@ -130,41 +140,58 @@ body {
 
 <div class="toggle" onclick="toggleMode()">[ Toggle Neon Mode ]</div>
 
-<h1 class="typewriter">Prompt Database Pro — Cyberpunk v1.1</h1>
+<h1 class="typewriter">Prompt Database Pro — Cyberpunk UI</h1>
 
-<div id="list"></div>
+<div id="promptContainer"></div>
 
 <script>
-let dark=false;
+let dark = false;
 function toggleMode(){
-  dark=!dark;
+  dark = !dark;
   document.body.style.background = dark ? '#001800' : '#020010';
   document.body.style.color = dark ? '#0f0' : '#0ff';
 }
 
-const prompts=[
-  {name:"Neon World Builder", prompt:"Generate a neon-lit cyberpunk city description: ____", tags:["cyber","world"]},
-  {name:"Glitch Translator", prompt:"Convert this text into glitch‑artifact style: ____", tags:["glitch","fx"]},
-  {name:"Holo Instructions", prompt:"Explain this like a hologram AI assistant: ____", tags:["holo","ai"]}
-];
+async function loadPrompts() {
+  try {
+    const res = await fetch("prompts.json");
+    const data = await res.json();
 
-function render(){
-  const c=document.getElementById("list");
-  c.innerHTML="";
-  prompts.forEach(p=>{
-    c.innerHTML += `
-      <div class='card'>
-        <h2>${p.name}</h2>
-        <p>${p.prompt}</p>
-        <p><b>TAGS:</b> ${p.tags.join(", ")}</p>
-        <div class='button' onclick='navigator.clipboard.writeText("${p.prompt.replace(/"/g,'\"')}")'>
-          COPY PROMPT
+    const container = document.getElementById("promptContainer");
+    container.innerHTML = "";
+
+    let currentCategory = "";
+
+    // Display sorted by category
+    data.forEach(prompt => {
+
+      // Category header
+      if (prompt.category !== currentCategory) {
+        currentCategory = prompt.category;
+        container.innerHTML += `
+          <div class="cat-header">${currentCategory}</div>
+        `;
+      }
+
+      container.innerHTML += `
+        <div class="card">
+          <h2>${prompt.title}</h2>
+          <p>${prompt.prompt}</p>
+          <div class="button" onclick='navigator.clipboard.writeText(\`${prompt.prompt}\`)'>
+            COPY PROMPT
+          </div>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
+
+  } catch (err) {
+    console.error("Error loading prompts.json:", err);
+    document.getElementById("promptContainer").innerHTML =
+      "<p style='color:red'>Failed to load prompts.json</p>";
+  }
 }
-render();
+
+document.addEventListener("DOMContentLoaded", loadPrompts);
 </script>
 
 </body>
