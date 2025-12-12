@@ -1,1 +1,1 @@
-## v1.0.0 - Neon Cyberpunk Logo Added
+## v1.1.0 - Full UI Completed
