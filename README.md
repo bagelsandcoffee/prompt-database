@@ -1,3 +1,7 @@
-# Prompt Database Pro
+<p align="center">
+  <img src="assets/logo.png" width="75%">
+</p>
 
-See documentation in project.
+# Prompt Database Pro — Neon Cyberpunk Edition
+
+A futuristic, neon‑styled prompt management interface.
