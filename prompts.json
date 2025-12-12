@@ -1,0 +1,17 @@
+[
+  {
+    "name": "YouTube Script Generator",
+    "prompt": "Write a YouTube script about ____ in an engaging, humorous style.",
+    "tags": ["YouTube", "Content"]
+  },
+  {
+    "name": "Business Idea Generator",
+    "prompt": "Generate 10 business ideas related to ____.",
+    "tags": ["Business", "Creativity"]
+  },
+  {
+    "name": "Essay Improver",
+    "prompt": "Improve this essay by making it clearer, more formal, and more concise: ____",
+    "tags": ["Writing", "Editing"]
+  }
+]
