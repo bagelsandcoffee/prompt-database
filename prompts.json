@@ -1,17 +1,20 @@
 [
   {
     "name": "YouTube Script Generator",
+    "category": "Content Creation",
     "prompt": "Write a YouTube script about ____ in an engaging, humorous style.",
-    "tags": ["YouTube", "Content"]
+    "tags": ["youtube", "script", "content"]
   },
   {
-    "name": "Business Idea Generator",
-    "prompt": "Generate 10 business ideas related to ____.",
-    "tags": ["Business", "Creativity"]
+    "name": "Startup Idea Generator",
+    "category": "Entrepreneurship",
+    "prompt": "Give me 10 startup ideas in the ____ space with revenue models.",
+    "tags": ["startup", "ideas", "business"]
   },
   {
     "name": "Essay Improver",
-    "prompt": "Improve this essay by making it clearer, more formal, and more concise: ____",
-    "tags": ["Writing", "Editing"]
+    "category": "Writing",
+    "prompt": "Rewrite the following essay to be clearer, more formal, and cohesive: ____",
+    "tags": ["writing", "editing", "essay"]
   }
 ]
