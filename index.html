@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Prompt Database Pro</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<title>Prompt Database Pro — Cyberpunk v1.1</title>
 <style>
+/* ===== GLOBAL STYLING ===== */
 body {
-  margin:0;
+  margin: 0;
   font-family: monospace;
-  background:#020010;
-  color:#0ff;
-  overflow-x:hidden;
+  background: #020010;
+  color: #0ff;
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
 }
 
-/* Background scanlines */
+/* ===== SCANLINES ===== */
 .scanlines::before {
-  content:"";
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: repeating-linear-gradient(
     to bottom,
     rgba(255,255,255,0.03) 0px,
@@ -27,46 +27,47 @@ body {
     transparent 2px,
     transparent 4px
   );
-  pointer-events:none;
+  pointer-events: none;
 }
 
-/* Animated hologram grid */
+/* ===== ANIMATED GRID ===== */
 .grid {
-  position:fixed;
-  top:0; left:0; width:100%; height:100%;
-  background:
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: 
     linear-gradient(#0ff2 1px, transparent 1px),
     linear-gradient(90deg, #f0f2 1px, transparent 1px);
   background-size: 40px 40px;
   animation: gridmove 15s linear infinite;
-  opacity:0.15;
+  opacity: 0.12;
 }
 @keyframes gridmove {
-  from {transform: translateY(0);}
-  to {transform: translateY(-400px);}
+  from { transform: translateY(0); }
+  to { transform: translateY(-400px); }
 }
 
-/* Splash intro */
+/* ===== SPLASH INTRO ===== */
 .splash {
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#0ff;
-  font-size:40px;
-  letter-spacing:4px;
-  animation: splashfade 3s forwards;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0ff;
+  font-size: 40px;
+  letter-spacing: 4px;
+  animation: splashfade 2.8s forwards;
 }
 @keyframes splashfade {
-  0% {opacity:1;}
-  80% {opacity:1;}
-  100% {opacity:0; display:none;}
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
 }
 
-/* Typing effect title */
+/* ===== TYPEWRITER TITLE ===== */
 .typewriter {
   overflow: hidden;
   border-right: .15em solid #0ff;
@@ -79,39 +80,7 @@ body {
 @keyframes typing { from { width: 0 } to { width: 100% } }
 @keyframes blink { 50% { border-color: transparent } }
 
-/* Hologram cards */
-.card {
-  border:1px solid #0ff9;
-  padding:20px;
-  margin:20px;
-  border-radius:12px;
-  background:linear-gradient(135deg, #080022aa, #200040aa);
-  box-shadow:0 0 25px #f0f8;
-  transition:0.25s;
-}
-.card:hover {
-  transform:scale(1.05) rotate(0.5deg);
-  box-shadow:0 0 40px #0ff;
-}
-
-/* Neon buttons */
-.button {
-  background:#f0f;
-  color:black;
-  padding:12px 20px;
-  border-radius:8px;
-  box-shadow:0 0 20px #f0f;
-  cursor:pointer;
-  transition:0.2s;
-  display:inline-block;
-  margin-top:10px;
-}
-.button:hover {
-  background:#0ff;
-  box-shadow:0 0 30px #0ff;
-}
-
-/* Category header */
+/* ===== CATEGORY HEADERS ===== */
 .cat-header {
   margin: 40px 20px 10px;
   font-size: 26px;
@@ -121,14 +90,49 @@ body {
   padding-bottom: 5px;
 }
 
-/* Neon Mode Toggle */
+/* ===== PROMPT CARDS ===== */
+.card {
+  border: 1px solid #0ff9;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #080022aa, #200040aa);
+  box-shadow: 0 0 25px #f0f8;
+  transition: 0.25s;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #0ff;
+}
+
+/* ===== BUTTONS ===== */
+.button {
+  background: #f0f;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #f0f;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-block;
+  margin-top: 10px;
+}
+.button:hover {
+  background: #0ff;
+  box-shadow: 0 0 30px #0ff;
+}
+
+/* ===== TOGGLE BUTTON ===== */
 .toggle {
-  cursor:pointer;
-  margin:20px;
-  color:#f0f;
+  cursor: pointer;
+  margin: 20px;
+  color: #f0f;
+  font-size: 18px;
+  user-select: none;
 }
 .toggle:hover {
-  color:#0ff;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
 }
 </style>
 </head>
@@ -146,12 +150,15 @@ body {
 
 <script>
 let dark = false;
-function toggleMode(){
+
+/* ===== TOGGLE NEON MODE ===== */
+function toggleMode() {
   dark = !dark;
   document.body.style.background = dark ? '#001800' : '#020010';
   document.body.style.color = dark ? '#0f0' : '#0ff';
 }
 
+/* ===== LOAD PROMPTS FROM JSON ===== */
 async function loadPrompts() {
   try {
     const res = await fetch("prompts.json");
@@ -162,15 +169,10 @@ async function loadPrompts() {
 
     let currentCategory = "";
 
-    // Display sorted by category
     data.forEach(prompt => {
-
-      // Category header
       if (prompt.category !== currentCategory) {
         currentCategory = prompt.category;
-        container.innerHTML += `
-          <div class="cat-header">${currentCategory}</div>
-        `;
+        container.innerHTML += `<div class="cat-header">${currentCategory}</div>`;
       }
 
       container.innerHTML += `
@@ -185,7 +187,7 @@ async function loadPrompts() {
     });
 
   } catch (err) {
-    console.error("Error loading prompts.json:", err);
+    console.error("ERROR loading prompts.json:", err);
     document.getElementById("promptContainer").innerHTML =
       "<p style='color:red'>Failed to load prompts.json</p>";
   }
