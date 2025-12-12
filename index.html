@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prompt Database</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 30px; }
+    h1 { text-align: center; }
+    .search { margin-bottom: 20px; width: 100%; padding: 10px; font-size: 16px; }
+    .prompt-card {
+        background: white; padding: 15px; margin-bottom: 15px;
+        border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .tag { 
+        display: inline-block; background: #ddd; padding: 3px 8px;
+        margin-right: 5px; border-radius: 5px; font-size: 12px; 
+    }
+</style>
+</head>
+<body>
+
+<h1>Prompt Database</h1>
+
+<input id="searchBox" class="search" type="text" placeholder="Search prompts...">
+
+<div id="promptList"></div>
+
+<script>
+// -------- ADD YOUR PROMPTS HERE --------
+const prompts = [
+    {
+        name: "YouTube Script Generator",
+        prompt: "Write a YouTube script about ____ in an engaging, humorous style.",
+        tags: ["YouTube", "Content"]
+    },
+    {
+        name: "Business Idea Generator",
+        prompt: "Generate 10 business ideas related to ____.",
+        tags: ["Business", "Creativity"]
+    },
+    {
+        name: "Essay Improver",
+        prompt: "Improve this essay by making it clearer, more formal, and more concise: ____",
+        tags: ["Writing", "Editing"]
+    }
+];
+// ---------------------------------------
+
+function renderPrompts(list) {
+    const container = document.getElementById("promptList");
+    container.innerHTML = "";
+    list.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "prompt-card";
+        card.innerHTML = `
+            <h3>${p.name}</h3>
+            <p>${p.prompt}</p>
+            <div>${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+document.getElementById("searchBox").addEventListener("input", e => {
+    const term = e.target.value.toLowerCase();
+    const filtered = prompts.filter(p =>
+        p.name.toLowerCase().includes(term) ||
+        p.prompt.toLowerCase().includes(term) ||
+        p.tags.join(" ").toLowerCase().includes(term)
+    );
+    renderPrompts(filtered);
+});
+
+renderPrompts(prompts);
+</script>
+
+</body>
+</html>
