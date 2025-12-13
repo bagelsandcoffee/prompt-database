@@ -58,5 +58,187 @@
     "title": "Ash & Smoke Portrait — Artistic Dark Concept",
     "category": "Fantasy",
     "prompt": "Artistic dark portrait of [Subject] with head tilted back, eyes closed. Messy particulate hair, soot-like smudges on pale skin, shoulders and neck swirling like ash or smoke with particles scattering in light. Ethereal emotional atmosphere."
+},
+{
+    "id": "a7b9d9c0-3eef-4c0c-9da4-7b0fb63c1001",
+    "title": "Futuristic Rajasthani Hologram Dressing Suite — Variant I",
+    "category": "Futuristic Fashion",
+    "prompt": "A cinematic futuristic bedroom illuminated with soft holographic light projections. [Subject] stands gracefully before floating Rajasthani fashion holograms, wearing a traditional lehenga chuni with shimmering embroidered details and a head drape. The space features minimalist modern furniture, a wooden desk with a laptop and steaming coffee cup, and hovering UI panels displaying outfit options and weather overlays. The mood blends cultural elegance with high-tech ambiance, creating an elevated editorial aesthetic."
+  },
+  {
+    "id": "2e2a2903-209b-4fd0-9a35-2f0a5741b002",
+    "title": "Urban Giant LED Cat Illusion — Variant I",
+    "category": "Cinematic Urban",
+    "prompt": "A massive L-shaped glasses-free 3D LED billboard towers above a bustling intersection inspired by Shinjuku and Taikoo Li. The display features a hyper-real giant white kitten playfully reaching toward pedestrians, its fluffy paws appearing to extend beyond the screen. A passerby with a red-tipped pole teases the kitten, creating a lifelike interaction. Under natural daylight, the 3D elements cast subtle shadows across surrounding buildings, blending seamlessly with the urban environment."
+  },
+  {
+    "id": "829f2e36-19dd-44a1-8bd1-5c2c3cb51003",
+    "title": "Emerald Saree Editorial Glow — Variant I",
+    "category": "High-Fashion Editorial",
+    "prompt": "A hyper-realistic fashion portrait of [Subject] wearing a translucent emerald net saree adorned with shimmering gold embroidery. Styled with a modern low drape and a sequined gold blouse, the pose is a refined side-profile turn with [Subject] looking back over the shoulder, maintaining a confident cinematic gaze. Long textured hair flows naturally. Set against a dark studio backdrop accented with geometric white neon strips, the lighting is dramatic and glossy, highlighting fabric shimmer and facial contours."
+  },
+  {
+    "id": "d87f6cdd-de99-44d1-a7c7-11f4bcb91004",
+    "title": "Emerald Saree Editorial Glow — Variant II",
+    "category": "High-Fashion Editorial",
+    "prompt": "A glamorous fashion portrait of [Subject] in an emerald net saree with ornate gold sequin detailing, paired with a modern structured blouse. [Subject] poses in a dynamic side-torso twist, turning toward the camera with a bold expressive gaze. Hair is long and wavy, styled with controlled volume. Dramatic studio lighting with neon back accents adds high-fashion contrast and cinematic depth, emphasizing texture, silhouette, and mood."
+  },
+  {
+    "id": "31ce620f-8f17-4f83-a34c-f6afde441005",
+    "title": "Industrial Denim Editorial Set — Variant I",
+    "category": "Cinematic Portrait",
+    "prompt": "A photorealistic editorial portrait of [Subject] leaning casually against a textured concrete wall with abstract painted strokes. Wearing an athletic charcoal top and faded acid-wash jeans, [Subject] poses with one arm lifted behind the head and the other relaxed. Hair is naturally tousled with soft waves. Lighting is diffused, cinematic, and subtle, giving depth to the environment and emphasizing a confident, modern portrait style."
+  },
+  {
+    "id": "c9c22a41-44c9-45ab-8f11-a0d6ec5a2006",
+    "title": "Industrial Denim Editorial Set — Variant II",
+    "category": "Cinematic Portrait",
+    "prompt": "An editorial-style portrait of [Subject] in a relaxed pose against a rough industrial wall. Soft natural lighting outlines facial features and highlights texture in the clothing. The overall mood is confident, modern, and expressive, blending street aesthetic with high-end portrait styling. Hair flows in loose waves, complementing the natural color palette and composition."
+  },
+  {
+    "id": "3f0fcd32-12e1-4dbd-a8fb-e94cf3dd7007",
+    "title": "Neon Glyph Palm Light Portrait — Variant I",
+    "category": "Fantasy Portrait",
+    "prompt": "[Subject] stands before a deep black background illuminated by a soft violet rim light. One hand is raised, palm facing upward as a glowing neon handwritten word of your choice floats above it. The neon text casts delicate reflections across [Subject]’s face and clothing. The portrait features cinematic lighting, clean composition, and a mysterious yet elegant editorial mood."
+  },
+  {
+    "id": "485aa7d9-d7d9-4bc1-84e0-b96dfad09008",
+    "title": "Classical Draped Fabric Study — Variant I",
+    "category": "Fine Art Portrait",
+    "prompt": "A full-length studio portrait inspired by classical sculpture. [Subject] reclines gracefully on the floor, supporting the head with one hand while looking directly toward the camera with a dramatic expression. Draped in flowing slate-blue fabric styled like a toga, the garment cascades across the floor in deep folds. A sculptural pedestal fragment rests beside [Subject]. The scene is lit with soft atmospheric light, creating a moody fine-art aesthetic with subtle grain and cool tones."
+  },
+  {
+    "id": "e612a2c1-47cc-43a1-ac7a-00fb41d11009",
+    "title": "Classical Draped Fabric Study — Variant II",
+    "category": "Fine Art Portrait",
+    "prompt": "A dramatic fine-art portrait of [Subject] posed in a classical reclining composition. Flowing teal fabric wraps around the figure and spreads across the floor in elegant folds. A muted blue-grey seamless background creates depth and mood. Soft, directional light enhances texture and sculptural qualities, producing a refined editorial interpretation of ancient artistic themes."
+  },
+  {
+    "id": "a992e31a-9b5c-4cc0-bab0-3520c12c10010",
+    "title": "Macro Coffee Transformation Sequence — Variant I",
+    "category": "Product / Macro",
+  "prompt": "A cinematic macro sequence showing two hands holding a transparent blister pack containing tablet-shaped miniature coffee cups. One tablet is pressed through the foil, then caught between the fingers. As it sits in the hand, the tablet expands into a full-size white coffee cup emitting soft steam. Warm café bokeh lighting, shallow depth of field, and crisp macro detail create a premium product-cinematic aesthetic."
+},
+{
+    "id": "f3a9727e-27a1-4b6e-9d92-bbc2cf801011",
+    "title": "Macro Coffee Transformation Sequence — Variant II",
+    "category": "Product / Macro",
+    "prompt": "A 6-second cinematic macro video sequence featuring two hands holding a transparent blister pack filled with miniature tablet-shaped coffee cups. One tablet is pushed through the foil and caught between the fingers. It quickly transforms into a full-sized steaming white coffee cup. Warm café bokeh, precise macro detail, smooth camera movement, and soft product lighting create a premium commercial aesthetic."
+  },
+  {
+    "id": "a1eb0ea2-6c33-43ed-8396-b911f86801012",
+    "title": "Foglit Bathroom Selfie Portrait — Variant I",
+    "category": "Cinematic Portrait",
+    "prompt": "A cinematic close-up selfie of [Subject] in a steam-filled bathroom. Warm golden light filters through thick fog, illuminating her damp skin and creating dramatic highlights. Her tousled wet hair frames her face as she raises one arm overhead. She wears a white damp-look bikini top, and soft droplets shimmer across her skin. The fogged glass shower door in the background catches subtle bokeh reflections, producing a warm–cool cinematic contrast."
+  },
+  {
+    "id": "de9c865c-9df2-4cd0-8378-03d1f96001013",
+    "title": "Foglit Bathroom Selfie Portrait — Variant II",
+    "category": "Cinematic Portrait",
+    "prompt": "[Subject] poses in a warm, steam-filled bathroom lit with soft cinematic highlights. Moisture glistens on the skin and hair, creating a dramatic glow. Wearing a white minimal top, she gazes at the camera with atmospheric intensity. The fogged glass backdrop contains soft light streaks and condensation textures, enhancing the cinematic mood with a dreamy, immersive feel."
+  },
+  {
+    "id": "b98f3101-6f54-4a78-9b45-3970c9a401014",
+    "title": "Wetlook Tropical Editorial Recline — Variant I",
+    "category": "High-Fashion Editorial",
+    "prompt": "A glamour editorial portrait of [Subject] reclining against a smooth surface, styled with wet tousled hair and a glossy sheen across the skin. She wears a white wet-look top paired with a shimmering gold fabric draped low on the waist. Lighting emphasizes moisture highlights and creates high-fashion reflections. The warm pink-to-gold gradient backdrop enhances the tropical cinematic aesthetic with soft depth and modern editorial polish."
+  },
+  {
+    "id": "fbc70268-85e3-49f4-b0e9-a32903dd01015",
+    "title": "Wetlook Tropical Editorial Recline — Variant II",
+    "category": "High-Fashion Editorial",
+    "prompt": "[Subject] poses in a relaxed reclining position wearing a wet-look sports top and a shimmering light-gold drape. Her right hand rests near her head as loose wet hair flows across her shoulder. Dramatic high-key lighting produces glossy highlights and enhances the vibrant gradient backdrop. The portrait feels polished, glamorous, and cinematic, maintaining a refined editorial tone."
+  },
+  {
+    "id": "0bb36938-6457-4739-82b8-eaa4e7f801016",
+    "title": "Neon Corridor Silhouette Fashion — Variant I",
+    "category": "Fashion / Cinematic",
+    "prompt": "A full-body cinematic studio portrait of [Subject] wearing a black side-slit dress with spaghetti straps and metallic lace-up heels. She stands framed in a narrow modern corridor illuminated by intense neon yellow and lime green backlighting. Subtle blue–violet fill light highlights the outfit. The dramatic rim light sculpting and f/1.4 depth of field create a striking high-fashion silhouette."
+  },
+  {
+    "id": "9d083fa2-01f7-44b4-aa11-e5a2ad8601017",
+    "title": "Neon Corridor Silhouette Fashion — Variant II",
+    "category": "Fashion / Cinematic",
+    "prompt": "[Subject] stands confidently in a narrow corridor flooded with bold neon green and yellow light. The vibrant illumination forms a striking silhouette around a sleek black evening dress with side slit details. Subtle cool fill light enhances contours and adds dimension. The cinematic color contrast and shallow depth of field create a bold editorial visual."
+  },
+  {
+    "id": "c2d1d26d-fce0-4c80-bf2c-1459ddee01018",
+    "title": "Chiaroscuro Neon Saree Editorial — Variant I",
+    "category": "High-Fashion Editorial",
+    "prompt": "A high-fashion portrait of [Subject] wearing a shimmering yellow sari with a sculpted modern drape, paired with a matching blouse and elegant jewelry. She stands against a black background accented with horizontal white neon strips. Her hair flows in soft waves as dramatic chiaroscuro lighting and volumetric haze highlight facial structure and jewelry detail, producing an 8K editorial aesthetic."
+  },
+  {
+    "id": "12adbb1a-a8c9-48f6-86fa-9d8a5df601019",
+    "title": "Chiaroscuro Neon Saree Editorial — Variant II",
+    "category": "High-Fashion Editorial",
+    "prompt": "[Subject] poses with a serene, confident expression while wearing a luminous yellow saree draped low at the waist, complemented by a matching modern blouse and delicate accessories. A dark studio environment with bright white neon lines produces bold high-fashion contrast. The lighting emphasizes elegant contours and creates a polished cinematic atmosphere in ultra-high resolution."
+  },
+  {
+    "id": "be50ad0d-daf4-4fff-b0c4-a7e8d97f01020",
+    "title": "Hotel Atrium Fashion Elegance — Variant I",
+    "category": "Fashion Portrait",
+    "prompt": "A refined editorial-style portrait of [Subject] standing in a luxurious hotel lobby featuring a grand chandelier and central fountain. Wearing the full outfit described in the reference (fashion-safe equivalent), she poses confidently with expressive but elegant posture. Soft, balanced lighting highlights the clothing’s texture and accessories, producing a polished high-end fashion mood."
+  }
+]
+[
+  {
+    "id": "f3a9727e-27a1-4b6e-9d92-bbc2cf801011",
+    "title": "Macro Coffee Transformation Sequence — Variant II",
+    "category": "Product / Macro",
+    "prompt": "A 6-second cinematic macro video sequence featuring two hands holding a transparent blister pack filled with miniature tablet-shaped coffee cups. One tablet is pushed through the foil and caught between the fingers. It quickly transforms into a full-sized steaming white coffee cup. Warm café bokeh, precise macro detail, smooth camera movement, and soft product lighting create a premium commercial aesthetic."
+  },
+  {
+    "id": "a1eb0ea2-6c33-43ed-8396-b911f86801012",
+    "title": "Foglit Bathroom Selfie Portrait — Variant I",
+    "category": "Cinematic Portrait",
+    "prompt": "A cinematic close-up selfie of [Subject] in a steam-filled bathroom. Warm golden light filters through thick fog, illuminating her damp skin and creating dramatic highlights. Her tousled wet hair frames her face as she raises one arm overhead. She wears a white damp-look bikini top, and soft droplets shimmer across her skin. The fogged glass shower door in the background catches subtle bokeh reflections, producing a warm–cool cinematic contrast."
+  },
+  {
+    "id": "de9c865c-9df2-4cd0-8378-03d1f96001013",
+    "title": "Foglit Bathroom Selfie Portrait — Variant II",
+    "category": "Cinematic Portrait",
+    "prompt": "[Subject] poses in a warm, steam-filled bathroom lit with soft cinematic highlights. Moisture glistens on the skin and hair, creating a dramatic glow. Wearing a white minimal top, she gazes at the camera with atmospheric intensity. The fogged glass backdrop contains soft light streaks and condensation textures, enhancing the cinematic mood with a dreamy, immersive feel."
+  },
+  {
+    "id": "b98f3101-6f54-4a78-9b45-3970c9a401014",
+    "title": "Wetlook Tropical Editorial Recline — Variant I",
+    "category": "High-Fashion Editorial",
+    "prompt": "A glamour editorial portrait of [Subject] reclining against a smooth surface, styled with wet tousled hair and a glossy sheen across the skin. She wears a white wet-look top paired with a shimmering gold fabric draped low on the waist. Lighting emphasizes moisture highlights and creates high-fashion reflections. The warm pink-to-gold gradient backdrop enhances the tropical cinematic aesthetic with soft depth and modern editorial polish."
+  },
+  {
+    "id": "fbc70268-85e3-49f4-b0e9-a32903dd01015",
+    "title": "Wetlook Tropical Editorial Recline — Variant II",
+    "category": "High-Fashion Editorial",
+    "prompt": "[Subject] poses in a relaxed reclining position wearing a wet-look sports top and a shimmering light-gold drape. Her right hand rests near her head as loose wet hair flows across her shoulder. Dramatic high-key lighting produces glossy highlights and enhances the vibrant gradient backdrop. The portrait feels polished, glamorous, and cinematic, maintaining a refined editorial tone."
+  },
+  {
+    "id": "0bb36938-6457-4739-82b8-eaa4e7f801016",
+    "title": "Neon Corridor Silhouette Fashion — Variant I",
+    "category": "Fashion / Cinematic",
+    "prompt": "A full-body cinematic studio portrait of [Subject] wearing a black side-slit dress with spaghetti straps and metallic lace-up heels. She stands framed in a narrow modern corridor illuminated by intense neon yellow and lime green backlighting. Subtle blue–violet fill light highlights the outfit. The dramatic rim light sculpting and f/1.4 depth of field create a striking high-fashion silhouette."
+  },
+  {
+    "id": "9d083fa2-01f7-44b4-aa11-e5a2ad8601017",
+    "title": "Neon Corridor Silhouette Fashion — Variant II",
+    "category": "Fashion / Cinematic",
+    "prompt": "[Subject] stands confidently in a narrow corridor flooded with bold neon green and yellow light. The vibrant illumination forms a striking silhouette around a sleek black evening dress with side slit details. Subtle cool fill light enhances contours and adds dimension. The cinematic color contrast and shallow depth of field create a bold editorial visual."
+  },
+  {
+    "id": "c2d1d26d-fce0-4c80-bf2c-1459ddee01018",
+    "title": "Chiaroscuro Neon Saree Editorial — Variant I",
+    "category": "High-Fashion Editorial",
+    "prompt": "A high-fashion portrait of [Subject] wearing a shimmering yellow sari with a sculpted modern drape, paired with a matching blouse and elegant jewelry. She stands against a black background accented with horizontal white neon strips. Her hair flows in soft waves as dramatic chiaroscuro lighting and volumetric haze highlight facial structure and jewelry detail, producing an 8K editorial aesthetic."
+  },
+  {
+    "id": "12adbb1a-a8c9-48f6-86fa-9d8a5df601019",
+    "title": "Chiaroscuro Neon Saree Editorial — Variant II",
+    "category": "High-Fashion Editorial",
+    "prompt": "[Subject] poses with a serene, confident expression while wearing a luminous yellow saree draped low at the waist, complemented by a matching modern blouse and delicate accessories. A dark studio environment with bright white neon lines produces bold high-fashion contrast. The lighting emphasizes elegant contours and creates a polished cinematic atmosphere in ultra-high resolution."
+  },
+  {
+    "id": "be50ad0d-daf4-4fff-b0c4-a7e8d97f01020",
+    "title": "Hotel Atrium Fashion Elegance — Variant I",
+    "category": "Fashion Portrait",
+    "prompt": "A refined editorial-style portrait of [Subject] standing in a luxurious hotel lobby featuring a grand chandelier and central fountain. Wearing the full outfit described in the reference (fashion-safe equivalent), she poses confidently with expressive but elegant posture. Soft, balanced lighting highlights the clothing’s texture and accessories, producing a polished high-end fashion mood."
   }
 ]
