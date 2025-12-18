@@ -2,190 +2,152 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Prompt Database Pro — Cyberpunk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Prompt Library</title>
 
 <style>
-/* ===== GLOBAL ===== */
+:root {
+  --bg: #f8f9fb;
+  --card: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+}
+
 body {
   margin: 0;
-  font-family: monospace;
-  background: #020010;
-  color: #0ff;
-  overflow-x: hidden;
-  transition: background 0.4s, color 0.4s;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* ===== SCANLINES ===== */
-.scanlines::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.03) 0px,
-    rgba(255,255,255,0.03) 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  pointer-events: none;
-}
-
-/* ===== GRID ===== */
-.grid {
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(#0ff2 1px, transparent 1px),
-    linear-gradient(90deg, #f0f2 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: gridmove 15s linear infinite;
-  opacity: 0.12;
-}
-@keyframes gridmove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-400px); }
-}
-
-/* ===== SPLASH ===== */
-.splash {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  letter-spacing: 4px;
-  animation: splashfade 2.5s forwards;
-}
-@keyframes splashfade {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 24px;
 }
 
 /* ===== HEADER ===== */
-.typewriter {
-  overflow: hidden;
-  border-right: .15em solid #0ff;
-  white-space: nowrap;
-  animation: typing 3s steps(40, end), blink .75s step-end infinite;
-  font-size: 32px;
-  width: fit-content;
-  margin: 60px auto 20px;
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
 }
-@keyframes typing { from { width: 0 } to { width: 100% } }
-@keyframes blink { 50% { border-color: transparent } }
 
-/* ===== TOGGLE ===== */
-.toggle {
-  margin: 20px;
-  cursor: pointer;
-  color: #f0f;
-  font-size: 18px;
+h1 {
+  font-size: 28px;
+  margin: 0;
 }
-.toggle:hover {
-  color: #0ff;
-  text-shadow: 0 0 10px #0ff;
+
+.search {
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  width: 100%;
 }
 
 /* ===== CATEGORY ===== */
-.cat-header {
-  margin: 40px 20px 10px;
-  font-size: 26px;
-  color: #f0f;
-  border-bottom: 1px solid #f0f4;
-  text-shadow: 0 0 12px #f0f;
+.category {
+  margin-top: 36px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
 }
 
-/* ===== CARDS ===== */
+/* ===== CARD ===== */
 .card {
-  border: 1px solid #0ff9;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #080022aa, #200040aa);
-  box-shadow: 0 0 25px #f0f8;
-  transition: 0.25s;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 16px;
 }
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px #0ff;
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+  white-space: pre-wrap;
 }
 
 /* ===== BUTTON ===== */
-.button {
-  background: #f0f;
-  color: black;
-  padding: 12px 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px #f0f;
+.copy {
+  margin-top: 12px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
-  display: inline-block;
-  margin-top: 10px;
+  background: var(--accent);
+  color: white;
 }
-.button:hover {
-  background: #0ff;
-  box-shadow: 0 0 30px #0ff;
+
+.copy:hover {
+  opacity: 0.9;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  margin: 60px 0 20px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  h1 { font-size: 22px; }
+  .container { padding: 16px; }
 }
 </style>
 </head>
 
-<body class="scanlines">
+<body>
 
-<div class="grid"></div>
-<div class="splash">BOOTING SYSTEM…</div>
+<div class="container">
+  <header>
+    <h1>Prompt Library</h1>
+    <input
+      class="search"
+      id="searchInput"
+      placeholder="Search prompts..."
+      oninput="renderPrompts()"
+    />
+  </header>
 
-<div class="toggle" onclick="toggleMode()">[ Toggle Neon Mode ]</div>
+  <main id="promptContainer"></main>
 
-<h1 class="typewriter">Prompt Database Pro — Cyberpunk UI</h1>
-
-<div id="promptContainer"></div>
+  <footer>
+    Powered by Notion
+  </footer>
+</div>
 
 <script>
-let dark = false;
+let allPrompts = [];
 
-/* ===== TOGGLE MODE ===== */
-function toggleMode() {
-  dark = !dark;
-  document.body.style.background = dark ? "#001800" : "#020010";
-  document.body.style.color = dark ? "#0f0" : "#0ff";
-}
-
-/* ===== LOAD PROMPTS FROM NOTION API ===== */
+/* ===== LOAD FROM API ===== */
 async function loadPrompts() {
   try {
     const res = await fetch("/api/prompts");
-    const data = await res.json();
+    allPrompts = await res.json();
 
-    data.sort((a, b) =>
+    allPrompts.sort((a, b) =>
       a.category.localeCompare(b.category)
     );
 
-    const container = document.getElementById("promptContainer");
-    container.innerHTML = "";
-
-    let currentCategory = "";
-
-    data.forEach(p => {
-      if (p.category !== currentCategory) {
-        currentCategory = p.category;
-        container.innerHTML += `
-          <div class="cat-header">${currentCategory}</div>
-        `;
-      }
-
-      container.innerHTML += `
-        <div class="card">
-          <h2>${p.title}</h2>
-          <p>${p.prompt}</p>
-          <div class="button" onclick="navigator.clipboard.writeText(\`${p.prompt}\`)">
-            COPY PROMPT
-          </div>
-        </div>
-      `;
-    });
-
+    renderPrompts();
   } catch (err) {
     document.getElementById("promptContainer").innerHTML =
       "<p style='color:red'>Failed to load prompts</p>";
@@ -193,15 +155,41 @@ async function loadPrompts() {
   }
 }
 
-/* ===== INIT ===== */
-document.addEventListener("DOMContentLoaded", () => {
-  loadPrompts();
+/* ===== RENDER ===== */
+function renderPrompts() {
+  const container = document.getElementById("promptContainer");
+  const search = document.getElementById("searchInput").value.toLowerCase();
 
-  const splash = document.querySelector(".splash");
-  splash.addEventListener("animationend", () => {
-    splash.style.display = "none";
-  });
-});
+  container.innerHTML = "";
+  let currentCategory = "";
+
+  allPrompts
+    .filter(p =>
+      p.title.toLowerCase().includes(search) ||
+      p.prompt.toLowerCase().includes(search)
+    )
+    .forEach(p => {
+      if (p.category !== currentCategory) {
+        currentCategory = p.category;
+        container.innerHTML += `
+          <div class="category">${currentCategory}</div>
+        `;
+      }
+
+      container.innerHTML += `
+        <div class="card">
+          <h3>${p.title}</h3>
+          <p>${p.prompt}</p>
+          <button class="copy" onclick="navigator.clipboard.writeText(\`${p.prompt}\`)">
+            Copy
+          </button>
+        </div>
+      `;
+    });
+}
+
+/* ===== INIT ===== */
+document.addEventListener("DOMContentLoaded", loadPrompts);
 </script>
 
 </body>
