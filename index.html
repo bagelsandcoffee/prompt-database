@@ -70,8 +70,21 @@ h1 {
   margin-top: 16px;
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
 .card h3 {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 17px;
 }
 
@@ -108,8 +121,17 @@ footer {
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
-  h1 { font-size: 22px; }
-  .container { padding: 16px; }
+  h1 {
+    font-size: 22px;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
 }
 </style>
 </head>
@@ -137,7 +159,7 @@ footer {
 <script>
 let allPrompts = [];
 
-/* ===== LOAD FROM API ===== */
+/* ===== LOAD PROMPTS ===== */
 async function loadPrompts() {
   try {
     const res = await fetch("/api/prompts");
@@ -155,13 +177,14 @@ async function loadPrompts() {
   }
 }
 
-/* ===== RENDER ===== */
+/* ===== RENDER PROMPTS (WITH NUMBERS) ===== */
 function renderPrompts() {
   const container = document.getElementById("promptContainer");
   const search = document.getElementById("searchInput").value.toLowerCase();
 
   container.innerHTML = "";
   let currentCategory = "";
+  let counter = 1;
 
   allPrompts
     .filter(p =>
@@ -178,13 +201,17 @@ function renderPrompts() {
 
       container.innerHTML += `
         <div class="card">
-          <h3>${p.title}</h3>
+          <div class="card-header">
+            <div class="number">#${counter}</div>
+            <h3>${p.title}</h3>
+          </div>
           <p>${p.prompt}</p>
           <button class="copy" onclick="navigator.clipboard.writeText(\`${p.prompt}\`)">
             Copy
           </button>
         </div>
       `;
+      counter++;
     });
 }
 
