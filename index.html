@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Prompt Library</title>
 
 <style>
@@ -14,6 +13,7 @@
   --muted: #666;
   --border: #e5e7eb;
   --accent: #2563eb;
+  --tag: #eef2ff;
 }
 
 body {
@@ -23,19 +23,17 @@ body {
   color: var(--text);
 }
 
-/* ===== LAYOUT ===== */
 .container {
   max-width: 900px;
   margin: auto;
   padding: 24px;
 }
 
-/* ===== HEADER ===== */
 header {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 h1 {
@@ -48,10 +46,29 @@ h1 {
   font-size: 15px;
   border-radius: 8px;
   border: 1px solid var(--border);
-  width: 100%;
 }
 
-/* ===== CATEGORY ===== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--tag);
+  cursor: pointer;
+}
+
+.tag.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
 .category {
   margin-top: 36px;
   font-size: 18px;
@@ -61,7 +78,6 @@ h1 {
   padding-bottom: 6px;
 }
 
-/* ===== CARD ===== */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -72,7 +88,6 @@ h1 {
 
 .card-header {
   display: flex;
-  align-items: center;
   gap: 10px;
   margin-bottom: 8px;
 }
@@ -95,7 +110,6 @@ h1 {
   white-space: pre-wrap;
 }
 
-/* ===== BUTTON ===== */
 .copy {
   margin-top: 12px;
   padding: 8px 14px;
@@ -107,11 +121,6 @@ h1 {
   color: white;
 }
 
-.copy:hover {
-  opacity: 0.9;
-}
-
-/* ===== FOOTER ===== */
 footer {
   text-align: center;
   margin: 60px 0 20px;
@@ -119,19 +128,9 @@ footer {
   color: var(--muted);
 }
 
-/* ===== MOBILE ===== */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 22px;
-  }
-
-  .container {
-    padding: 16px;
-  }
-
-  .card {
-    padding: 16px;
-  }
+  h1 { font-size: 22px; }
+  .container { padding: 16px; }
 }
 </style>
 </head>
@@ -141,43 +140,58 @@ footer {
 <div class="container">
   <header>
     <h1>Prompt Library</h1>
+
     <input
       class="search"
       id="searchInput"
       placeholder="Search prompts..."
       oninput="renderPrompts()"
     />
+
+    <div class="tags" id="tagContainer"></div>
   </header>
 
   <main id="promptContainer"></main>
 
-  <footer>
-    Powered by Notion
-  </footer>
+  <footer>Powered by Notion</footer>
 </div>
 
 <script>
 let allPrompts = [];
+let activeTag = null;
 
-/* ===== LOAD PROMPTS FROM API ===== */
+/* ===== LOAD PROMPTS ===== */
 async function loadPrompts() {
-  try {
-    const res = await fetch("/api/prompts");
-    allPrompts = await res.json();
-
-    allPrompts.sort((a, b) =>
-      a.category.localeCompare(b.category)
-    );
-
-    renderPrompts();
-  } catch (err) {
-    document.getElementById("promptContainer").innerHTML =
-      "<p style='color:red'>Failed to load prompts</p>";
-    console.error(err);
-  }
+  const res = await fetch("/api/prompts");
+  allPrompts = await res.json();
+  allPrompts.sort((a, b) => a.category.localeCompare(b.category));
+  renderTags();
+  renderPrompts();
 }
 
-/* ===== RENDER PROMPTS (WITH NUMBERS) ===== */
+/* ===== TAGS ===== */
+function renderTags() {
+  const tagSet = new Set();
+  allPrompts.forEach(p => p.tags.forEach(t => tagSet.add(t)));
+
+  const container = document.getElementById("tagContainer");
+  container.innerHTML = "";
+
+  [...tagSet].sort().forEach(tag => {
+    const el = document.createElement("div");
+    el.className = "tag";
+    el.textContent = tag;
+    el.onclick = () => {
+      activeTag = activeTag === tag ? null : tag;
+      renderTags();
+      renderPrompts();
+    };
+    if (tag === activeTag) el.classList.add("active");
+    container.appendChild(el);
+  });
+}
+
+/* ===== RENDER PROMPTS ===== */
 function renderPrompts() {
   const container = document.getElementById("promptContainer");
   const search = document.getElementById("searchInput").value.toLowerCase();
@@ -188,15 +202,14 @@ function renderPrompts() {
 
   allPrompts
     .filter(p =>
-      p.title.toLowerCase().includes(search) ||
-      p.prompt.toLowerCase().includes(search)
+      (!activeTag || p.tags.includes(activeTag)) &&
+      (p.title.toLowerCase().includes(search) ||
+       p.prompt.toLowerCase().includes(search))
     )
     .forEach(p => {
       if (p.category !== currentCategory) {
         currentCategory = p.category;
-        container.innerHTML += `
-          <div class="category">${currentCategory}</div>
-        `;
+        container.innerHTML += `<div class="category">${currentCategory}</div>`;
       }
 
       container.innerHTML += `
@@ -215,18 +228,7 @@ function renderPrompts() {
     });
 }
 
-/* ===== INIT ===== */
 document.addEventListener("DOMContentLoaded", loadPrompts);
-</script>
-
-<!-- ===== VERCEL SPEED INSIGHTS (OPTION B) ===== -->
-<script>
-(function () {
-  const script = document.createElement("script");
-  script.src = "https://vercel.com/insights/script.js";
-  script.defer = true;
-  document.body.appendChild(script);
-})();
 </script>
 
 </body>
