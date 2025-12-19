@@ -1,135 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width" />
 <title>Prompt Library</title>
 
 <style>
 :root {
   --bg: #f8f9fb;
-  --card: #ffffff;
+  --card: #fff;
   --text: #111;
   --muted: #666;
   --border: #e5e7eb;
   --accent: #2563eb;
-  --tag: #eef2ff;
 }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+body { margin:0; background:var(--bg); color:var(--text);
+  font-family: system-ui,-apple-system,Segoe UI;
 }
+.container { max-width:900px; margin:auto; padding:24px; }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 24px;
+.tags { display:flex; flex-wrap:wrap; gap:8px; }
+.tag { padding:6px 12px; border-radius:50px;
+  border:1px solid var(--border); background:#eef2ff; cursor:pointer;
 }
+.tag.active { background:var(--accent); color:#fff; }
 
-header {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.search {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tag {
-  padding: 6px 12px;
-  border-radius: 50px;
-  background: var(--tag);
-  border: 1px solid var(--border);
-  cursor: pointer;
-}
-
-.tag.active {
-  background: var(--accent);
-  color: white;
-}
-
-/* Category */
 .category {
-  margin-top: 26px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--border);
-  font-weight: 600;
-  color: var(--muted);
+  margin-top:26px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:6px;
+  color:var(--muted);
+  font-weight:600;
 }
 
-/* Card */
 .card {
-  display: flex;
-  gap: 14px;
-  background: var(--card);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  margin-top: 14px;
-  padding: 14px;
+  display:flex;
+  gap:14px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-top:14px;
+  padding:14px;
 }
 
 .card img {
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  width:110px;
+  height:110px;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid var(--border);
+  display:none;
 }
 
-.card-body {
-  flex: 1;
-}
-
-.number {
-  color: var(--muted);
-  font-size: 12px;
+.placeholder {
+  width:110px;
+  height:110px;
+  border-radius:8px;
+  background:#ddd;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#555;
+  font-size:12px;
+  border:1px solid var(--border);
 }
 
 button {
-  margin-top: 8px;
-  padding: 8px 14px;
-  border-radius: 6px;
-  border: none;
-  background: var(--accent);
-  color: white;
-  cursor: pointer;
+  margin-top:8px;
+  padding:8px 14px;
+  border-radius:6px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  cursor:pointer;
 }
 
-button:hover {
-  opacity: 0.9;
-}
+button:hover { opacity:0.9; }
 
-footer {
-  margin: 40px 0;
-  text-align: center;
-  color: var(--muted);
-}
+footer { margin:40px 0; text-align:center; color:var(--muted); }
 </style>
 </head>
 
 <body>
 <div class="container">
-  <header>
-    <h1>Prompt Library</h1>
-    <input id="searchInput" class="search" placeholder="Search prompts..." oninput="render()" />
-    <div id="tagContainer" class="tags"></div>
-  </header>
+  <h1>Prompt Library</h1>
+
+  <input id="searchInput"
+         style="padding:10px;width:100%;border-radius:8px;border:1px solid var(--border)"
+         placeholder="Search..."
+         oninput="render()" />
+
+  <div id="tagContainer" class="tags"></div>
 
   <main id="promptContainer"></main>
 
-  <footer>Powered by Notion + Gemini</footer>
+  <footer>
+    Powered by Notion + On-Demand Gemini
+  </footer>
 </div>
 
 <script>
@@ -140,10 +108,7 @@ async function load() {
   const res = await fetch("/api/prompts");
   prompts = await res.json();
 
-  prompts.forEach(p => {
-    p.tags = p.tags || [];
-  });
-
+  prompts.forEach(p => p.tags = p.tags || []);
   prompts.sort((a,b)=> a.category.localeCompare(b.category));
 
   renderTags();
@@ -159,59 +124,82 @@ function renderTags() {
 
   [...set].sort().forEach(tag => {
     const div = document.createElement("div");
-    div.className = "tag";
-    div.textContent = tag;
-    if (tag === activeTag) div.classList.add("active");
-    div.onclick = () => {
-      activeTag = (activeTag === tag) ? null : tag;
-      renderTags();
-      render();
-    };
+    div.className="tag";
+    div.textContent=tag;
+    if(tag===activeTag) div.classList.add("active");
+    div.onclick=()=>{ activeTag = activeTag===tag?null:tag; renderTags(); render(); };
     el.appendChild(div);
   });
 }
 
 function render() {
-  const container = document.getElementById("promptContainer");
-  const search = document.getElementById("searchInput").value.toLowerCase();
-  container.innerHTML = "";
-
-  let currentCategory = "";
-  let count = 1;
+  const c = document.getElementById("promptContainer");
+  const q = document.getElementById("searchInput").value.toLowerCase();
+  c.innerHTML="";
+  let category=""; let i=1;
 
   prompts
     .filter(p =>
       (!activeTag || p.tags.includes(activeTag)) &&
-      (p.title.toLowerCase().includes(search) || p.prompt.toLowerCase().includes(search))
+      (p.title.toLowerCase().includes(q) || p.prompt.toLowerCase().includes(q))
     )
     .forEach(p => {
-      if (p.category !== currentCategory) {
-        currentCategory = p.category;
-        container.innerHTML += `<div class="category">${currentCategory}</div>`;
+      if(p.category!==category){
+        category=p.category;
+        c.innerHTML += `<div class="category">${category}</div>`;
       }
 
-      container.innerHTML += `
-        <div class="card">
-          <img src="/api/image?prompt=${encodeURIComponent(p.title)}" />
-          <div class="card-body">
-            <div class="number">#${count}</div>
-            <h3>${p.title}</h3>
-            <p>${p.prompt}</p>
-            <button onclick="navigator.clipboard.writeText(\`${p.prompt}\`)">
-              Copy
-            </button>
-          </div>
-        </div>
+      const card=document.createElement("div");
+      card.className="card";
+
+      const img=document.createElement("img");
+      img.loading="lazy";
+
+      const holder=document.createElement("div");
+      holder.className="placeholder";
+      holder.innerHTML="No Image<br><br>Click<br>Generate";
+
+      const body=document.createElement("div");
+      body.innerHTML=`
+        <div style='color:#666;font-size:12px'>#${i}</div>
+        <h3>${p.title}</h3>
+        <p style='color:#666'>${p.prompt}</p>
       `;
 
-      count++;
+      const btn=document.createElement("button");
+      btn.textContent="Generate Sample";
+      btn.onclick=async ()=>{
+        btn.textContent="Generating...";
+        btn.disabled=true;
+
+        img.src = "/api/image?prompt="+encodeURIComponent(p.title);
+
+        img.onload=()=>{
+          holder.style.display="none";
+          img.style.display="block";
+          btn.textContent="Regenerate";
+          btn.disabled=false;
+        };
+
+        img.onerror=()=>{
+          holder.innerHTML="Limit<br>Reached<br>Try Tomorrow";
+          btn.textContent="Generate Sample";
+          btn.disabled=false;
+        };
+      };
+
+      body.appendChild(btn);
+      card.appendChild(holder);
+      card.appendChild(img);
+      card.appendChild(body);
+      c.appendChild(card);
+      i++;
     });
 
-  if (count === 1) container.innerHTML = "<p>No prompts found.</p>";
+  if(i===1) c.innerHTML="<p>No prompts found.</p>";
 }
 
 document.addEventListener("DOMContentLoaded", load);
 </script>
-
 </body>
 </html>
