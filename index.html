@@ -23,6 +23,7 @@ body {
   color: var(--text);
 }
 
+/* Layout */
 .container {
   max-width: 900px;
   margin: auto;
@@ -33,14 +34,14 @@ header {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 28px;
   margin: 0;
 }
 
+/* Search */
 .search {
   padding: 12px 14px;
   font-size: 15px;
@@ -48,6 +49,7 @@ h1 {
   border: 1px solid var(--border);
 }
 
+/* Tags */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -69,8 +71,9 @@ h1 {
   border-color: var(--accent);
 }
 
+/* Category */
 .category {
-  margin-top: 36px;
+  margin-top: 24px;
   font-size: 18px;
   font-weight: 600;
   color: var(--muted);
@@ -78,59 +81,63 @@ h1 {
   padding-bottom: 6px;
 }
 
+/* Cards */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 18px;
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .card-header {
   display: flex;
   gap: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .number {
-  font-size: 14px;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--muted);
 }
 
 .card h3 {
   margin: 0;
-  font-size: 17px;
 }
 
 .card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.5;
   white-space: pre-wrap;
 }
 
+/* Button */
 .copy {
-  margin-top: 12px;
+  margin-top: 10px;
   padding: 8px 14px;
-  font-size: 14px;
   border-radius: 6px;
   border: none;
-  cursor: pointer;
   background: var(--accent);
   color: white;
+  cursor: pointer;
 }
 
+.copy:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  margin: 60px 0 20px;
-  font-size: 13px;
+  margin: 50px 0 20px;
   color: var(--muted);
 }
 
+/* Mobile */
 @media (max-width: 600px) {
-  h1 { font-size: 22px; }
-  .container { padding: 16px; }
+  .container {
+    padding: 16px;
+  }
 }
 </style>
 </head>
@@ -160,16 +167,33 @@ footer {
 let allPrompts = [];
 let activeTag = null;
 
-/* ===== LOAD PROMPTS ===== */
+/* ===== Load from API ===== */
 async function loadPrompts() {
-  const res = await fetch("/api/prompts");
-  allPrompts = await res.json();
-  allPrompts.sort((a, b) => a.category.localeCompare(b.category));
-  renderTags();
-  renderPrompts();
+  try {
+    const res = await fetch("/api/prompts");
+    const json = await res.json();
+
+    allPrompts = Array.isArray(json) ? json : [];
+
+    allPrompts.forEach(p => {
+      p.title = p.title || "Untitled";
+      p.prompt = p.prompt || "";
+      p.category = p.category || "General";
+      p.tags = Array.isArray(p.tags) ? p.tags : [];
+    });
+
+    allPrompts.sort((a, b) => a.category.localeCompare(b.category));
+
+    renderTags();
+    renderPrompts();
+
+  } catch (err) {
+    document.getElementById("promptContainer").innerHTML =
+      "<p style='color:red'>Failed to load prompts</p>";
+  }
 }
 
-/* ===== TAGS ===== */
+/* ===== Tags ===== */
 function renderTags() {
   const tagSet = new Set();
   allPrompts.forEach(p => p.tags.forEach(t => tagSet.add(t)));
@@ -181,17 +205,19 @@ function renderTags() {
     const el = document.createElement("div");
     el.className = "tag";
     el.textContent = tag;
+
     el.onclick = () => {
       activeTag = activeTag === tag ? null : tag;
       renderTags();
       renderPrompts();
     };
+
     if (tag === activeTag) el.classList.add("active");
     container.appendChild(el);
   });
 }
 
-/* ===== RENDER PROMPTS ===== */
+/* ===== Render Prompts ===== */
 function renderPrompts() {
   const container = document.getElementById("promptContainer");
   const search = document.getElementById("searchInput").value.toLowerCase();
@@ -226,6 +252,10 @@ function renderPrompts() {
       `;
       counter++;
     });
+
+  if (counter === 1) {
+    container.innerHTML = "<p>No prompts found.</p>";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", loadPrompts);
