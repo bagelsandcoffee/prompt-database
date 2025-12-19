@@ -8,7 +8,6 @@ export default async function handler(req, res) {
 
     const { prompt } = req.query;
 
-    // ---- BASIC VALIDATION ----
     if (!prompt) {
       return res.status(400).json({ error: "Missing prompt parameter" });
     }
@@ -20,7 +19,6 @@ export default async function handler(req, res) {
     if (!KV_REST_API_URL || !KV_REST_API_TOKEN) {
       return res.status(500).json({ error: "Missing KV configuration" });
     }
-
 
     // ---- 1️⃣ CHECK CACHE ----
     const cacheKey = `img_cache:${prompt}`;
@@ -36,10 +34,9 @@ export default async function handler(req, res) {
       return res.send(img);
     }
 
-
     // ---- 2️⃣ CALL GEMINI ----
     const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateImages?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateImages?key=${GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,30 +46,39 @@ export default async function handler(req, res) {
       }
     );
 
-    const raw = await geminiRes.text();   // <-- safer
-    let data = null;
+    const raw = await geminiRes.text();
 
+    // 🔍 DEBUG RETURN
+    if (!geminiRes.ok) {
+      return res.status(500).json({
+        error: "Gemini request failed",
+        http_status: geminiRes.status,
+        headers: Object.fromEntries(geminiRes.headers.entries()),
+        body: raw
+      });
+    }
+
+    let data = null;
     try {
       data = JSON.parse(raw);
-    } catch (e) {
+    } catch {
       return res.status(500).json({
-        error: "Gemini returned NON-JSON response",
+        error: "Gemini returned NON-JSON again",
+        http_status: geminiRes.status,
+        headers: Object.fromEntries(geminiRes.headers.entries()),
         raw
       });
     }
 
-    // ---- 3️⃣ VALIDATE GEMINI RESPONSE ----
     if (!data?.images?.[0]?.base64) {
       return res.status(500).json({
-        error: "Gemini didn’t return an image",
+        error: "Gemini responded but no image",
         gemini_response: data
       });
     }
 
     const base64 = data.images[0].base64;
 
-
-    // ---- 4️⃣ SAVE TO CACHE ----
     await fetch(`${KV_REST_API_URL}/set/${cacheKey}`, {
       method: "POST",
       headers: {
@@ -82,12 +88,10 @@ export default async function handler(req, res) {
       body: base64
     });
 
-    await fetch(`${KV_REST_API_URL}/expire/${cacheKey}/7776000`, { // 90 days
+    await fetch(`${KV_REST_API_URL}/expire/${cacheKey}/7776000`, {
       headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` }
     });
 
-
-    // ---- 5️⃣ RETURN IMAGE ----
     const img = Buffer.from(base64, "base64");
     res.setHeader("Content-Type", "image/png");
     res.send(img);
