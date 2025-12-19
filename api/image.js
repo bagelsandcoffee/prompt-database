@@ -26,18 +26,15 @@ export default async function handler(req, res) {
       return res.send(img);
     }
 
-    // 2️⃣ CORRECT MODERN GEMINI IMAGE ENDPOINT
+    // 2️⃣ GOOGLE IMAGEN 3 ENDPOINT (WORKING)
     const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/imagegeneration:generate?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0:generateImages?key=${GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          prompt: {
-            text: prompt
-          },
-          aspectRatio: "1:1",          // or "16:9", "4:5", etc.
-          size: "1024x1024"            // supported sizes: 512, 768, 1024
+          prompt: { text: prompt },
+          size: "1024x1024"
         })
       }
     );
@@ -62,14 +59,14 @@ export default async function handler(req, res) {
       });
     }
 
-    if (!data?.generatedImages?.[0]?.image?.base64) {
+    if (!data?.images?.[0]?.base64) {
       return res.status(500).json({
-        error: "Gemini did not return an image",
+        error: "Gemini did not return image",
         response: data
       });
     }
 
-    const base64 = data.generatedImages[0].image.base64;
+    const base64 = data.images[0].base64;
 
     // 3️⃣ SAVE CACHE
     await fetch(`${KV_REST_API_URL}/set/${cacheKey}`, {
