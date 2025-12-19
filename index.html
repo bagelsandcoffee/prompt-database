@@ -1,207 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prompt Database</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prompt Database</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: #0f172a;
-      color: white;
-    }
+<style>
+  body{
+    margin:0;
+    background:#050a1a;
+    color:white;
+    font-family:system-ui, -apple-system, Segoe UI, Roboto;
+  }
 
-    header {
-      text-align: center;
-      padding: 25px 10px;
-      background: #020617;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid #1f2937;
-    }
+  /* HERO VIDEO */
+  .hero{
+    position:relative;
+    width:100%;
+    height:300px;
+    overflow:hidden;
+    border-bottom:1px solid rgba(255,255,255,.15);
+  }
 
-    h1 {
-      margin: 0;
-      font-size: 22px;
-    }
+  .hero video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
 
-    .container {
-      max-width: 920px;
-      margin: auto;
-      padding: 16px;
-    }
+  .overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    padding:18px;
+    background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.85));
+  }
 
-    .search {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      margin-bottom: 12px;
-      font-size: 14px;
-    }
+  .overlay h1{
+    margin:0;
+    font-size:26px;
+    font-weight:800;
+  }
 
-    .tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-    }
+  .container{
+    max-width:900px;
+    margin:15px auto;
+    padding:12px;
+  }
 
-    .tag {
-      padding: 6px 10px;
-      background: #111827;
-      border-radius: 8px;
-      font-size: 12px;
-      cursor: pointer;
-      opacity: 0.7;
-    }
+  .searchBox{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:0;
+    outline:0;
+    font-size:15px;
+  }
 
-    .tag.active {
-      background: #2563eb;
-      opacity: 1;
-    }
+  .tags{
+    margin:10px 0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
 
-    .prompt {
-      background: #020617;
-      border: 1px solid #1f2937;
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 14px;
-    }
+  .tag{
+    padding:5px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.2);
+    cursor:pointer;
+    font-size:13px;
+  }
 
-    .title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
+  .tag.active{
+    background:#4a7aff;
+  }
 
-    .desc {
-      opacity: 0.8;
-      font-size: 12px;
-      margin-top: 4px;
-    }
+  .prompt{
+    background:#0c1430;
+    border:1px solid rgba(255,255,255,.15);
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:12px;
+  }
 
-    .empty {
-      text-align: center;
-      opacity: 0.6;
-      margin-top: 40px;
-    }
+  button{
+    background:#4a7aff;
+    border:0;
+    padding:8px 12px;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+  }
 
-    @media (max-width: 720px) {
-      h1 {
-        font-size: 18px;
-      }
-      .prompt {
-        padding: 12px;
-      }
-    }
-  </style>
+  .sample{
+    width:100%;
+    border-radius:10px;
+    margin-top:10px;
+    display:none;
+  }
+
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>🔥 Prompt Database</h1>
-    <p style="opacity:.7;font-size:12px;">Powered by Notion — Fast, Public & Clean UI</p>
-  </header>
 
-  <div class="container">
-
-    <input
-      class="search"
-      id="search"
-      placeholder="Search prompts..."
-    />
-
-    <div class="tags" id="tags"></div>
-
-    <div id="list"></div>
-
-    <div class="empty" id="empty" style="display:none;">
-      No prompts found 🔍
-    </div>
-
+<!-- HERO VIDEO -->
+<div class="hero">
+  <video autoplay loop muted playsinline>
+    <source src="/hero.mp4" type="video/mp4"/>
+  </video>
+  <div class="overlay">
+    <h1>Prompt Database</h1>
   </div>
+</div>
 
-  <script>
-    let prompts = [];
-    let activeTag = null;
 
-    async function loadPrompts() {
-      const res = await fetch("/api/prompts");
-      prompts = await res.json();
-      renderTags();
-      render();
-    }
+<div class="container">
 
-    function renderTags() {
-      const tagContainer = document.getElementById("tags");
-      const allTags = new Set();
+  <input id="search" class="searchBox" placeholder="Search prompts..."/>
 
-      prompts.forEach(p => {
-        if (p.tags) {
-          p.tags.forEach(t => allTags.add(t));
-        }
-      });
+  <div class="tags" id="tags"></div>
 
-      tagContainer.innerHTML = "";
-      [...allTags].forEach(tag => {
-        const span = document.createElement("div");
-        span.className = "tag";
-        span.innerText = tag;
+  <h2>Prompts</h2>
+  <div id="promptList">Loading...</div>
 
-        span.onclick = () => {
-          if (activeTag === tag) activeTag = null;
-          else activeTag = tag;
-          render();
-          renderTags();
-        };
+</div>
 
-        if (activeTag === tag) span.classList.add("active");
-        tagContainer.appendChild(span);
-      });
-    }
+<script>
+let prompts = [];
+let activeTag = null;
 
-    function render() {
-      const list = document.getElementById("list");
-      const empty = document.getElementById("empty");
-      const search = document.getElementById("search").value.toLowerCase();
+async function loadPrompts(){
+  const res = await fetch("/api/prompts");
+  prompts = await res.json();
+  buildTags();
+  render();
+}
 
-      const filtered = prompts.filter(p => {
-        const matchesText =
-          p.title.toLowerCase().includes(search) ||
-          (p.description || "").toLowerCase().includes(search);
-
-        const matchesTag =
-          !activeTag ||
-          (p.tags && p.tags.includes(activeTag));
-
-        return matchesText && matchesTag;
-      });
-
-      list.innerHTML = "";
-      empty.style.display = filtered.length ? "none" : "block";
-
-      filtered.forEach((p, i) => {
-        const div = document.createElement("div");
-        div.className = "prompt";
-
-        div.innerHTML = `
-          <div class="title">${i + 1}. ${p.title}</div>
-          <div>${p.prompt}</div>
-          <div class="desc">${p.description || ""}</div>
-        `;
-
-        list.appendChild(div);
-      });
-    }
-
-    document.getElementById("search").addEventListener("input", render);
-
-    loadPrompts();
-  </script>
-</body>
-</html>
+function buildTags(){
+  const all = new Set();
+  prompts.forEach(p => (p.tags||[]).forEach(t=>all.add(t)));
+  const tagBox=document.getElementById("tags");
+  tagBox.innerHTML="";
+  all.forEach(tag=>{
+    const span=document.createElement("div");
+    span.className="tag";
+    span.innerText=tag;
+    span.onclick=()=>{
+      activeTag = activeTag
