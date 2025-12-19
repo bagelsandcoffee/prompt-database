@@ -13,28 +13,38 @@ export default async function handler(req, res) {
     if (!KV_REST_API_URL || !KV_REST_API_TOKEN)
       return res.status(500).json({ error: "Missing KV configuration" });
 
-    // 1️⃣ CACHE CHECK
+    // 1️⃣ Cache key
     const cacheKey = `img_cache:${prompt}`;
-    const cacheRes = await fetch(`${KV_REST_API_URL}/get/${cacheKey}`, {
-      headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` }
-    });
 
-    const cached = await cacheRes.json().catch(() => null);
-    if (cached?.result) {
-      const img = Buffer.from(cached.result, "base64");
-      res.setHeader("Content-Type", "image/png");
-      return res.send(img);
+    // 2️⃣ Try KV Cache
+    try {
+      const cacheRes = await fetch(`${KV_REST_API_URL}/get/${cacheKey}`, {
+        headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` }
+      });
+
+      const cached = await cacheRes.json().catch(() => null);
+
+      if (cached?.result) {
+        const img = Buffer.from(cached.result, "base64");
+        res.setHeader("Content-Type", "image/png");
+        return res.send(img);
+      }
+    } catch (_) {
+      // cache fail shouldn't kill app
     }
 
-    // 2️⃣ GOOGLE IMAGEN 3 ENDPOINT (WORKING)
+    // 3️⃣ Call Gemini 2.5 Flash Image
     const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0:generateImages?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          prompt: { text: prompt },
-          size: "1024x1024"
+          contents: [
+            {
+              parts: [{ text: prompt }]
+            }
+          ]
         })
       }
     );
@@ -59,30 +69,33 @@ export default async function handler(req, res) {
       });
     }
 
-    if (!data?.images?.[0]?.base64) {
+    const base64 =
+      data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+
+    if (!base64) {
       return res.status(500).json({
-        error: "Gemini did not return image",
+        error: "Gemini returned no image",
         response: data
       });
     }
 
-    const base64 = data.images[0].base64;
+    // 4️⃣ Save to KV cache (90 days)
+    try {
+      await fetch(`${KV_REST_API_URL}/set/${cacheKey}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${KV_REST_API_TOKEN}`,
+          "Content-Type": "text/plain"
+        },
+        body: base64
+      });
 
-    // 3️⃣ SAVE CACHE
-    await fetch(`${KV_REST_API_URL}/set/${cacheKey}`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${KV_REST_API_TOKEN}`,
-        "Content-Type": "text/plain"
-      },
-      body: base64
-    });
+      await fetch(`${KV_REST_API_URL}/expire/${cacheKey}/7776000`, {
+        headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` }
+      });
+    } catch (_) {}
 
-    await fetch(`${KV_REST_API_URL}/expire/${cacheKey}/7776000`, {
-      headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` }
-    });
-
-    // 4️⃣ RETURN IMAGE
+    // 5️⃣ Return image
     const img = Buffer.from(base64, "base64");
     res.setHeader("Content-Type", "image/png");
     res.send(img);
