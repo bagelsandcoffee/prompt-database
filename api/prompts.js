@@ -14,9 +14,18 @@ export default async function handler(req, res) {
           "Authorization": `Bearer ${NOTION_TOKEN}`,
           "Notion-Version": "2022-06-28",
           "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify({
+          page_size: 100
+        })
       }
     );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Notion API Error:", errorData);
+      throw new Error(errorData.message || "Notion API error");
+    }
 
     const data = await response.json();
 
