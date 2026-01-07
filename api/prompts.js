@@ -11,36 +11,26 @@ export default async function handler(req, res) {
       {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${NOTION_TOKEN}`,
+          Authorization: `Bearer ${NOTION_TOKEN}`,
           "Notion-Version": "2022-06-28",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          page_size: 100
-        })
+          page_size: 100,
+        }),
       }
     );
 
     if (!response.ok) {
       const errorData = await response.json();
       console.error("Notion API Error:", errorData);
-      throw new Error(errorData.message || "Notion API error");
+      return res.status(500).json({ error: "Notion API error" });
     }
 
     const data = await response.json();
 
-    const prompts = data.results.map(p => ({
+    const prompts = data.results.map((p) => ({
       id: p.id,
       title: p.properties.Title?.title?.[0]?.plain_text || "",
       category: p.properties.Category?.select?.name || "General",
-      prompt: p.properties.Prompt?.rich_text?.[0]?.plain_text || "",
-      tags: p.properties.Tags?.multi_select?.map(t => t.name) || []
-    }));
-
-    res.status(200).json(prompts);
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to fetch Notion data" });
-  }
-}
+      prompt: p.properties.Prompt?.rich_text?.[0]?.plain_text |
